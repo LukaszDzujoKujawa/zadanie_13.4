@@ -3,10 +3,10 @@ process.stdin.setEncoding('utf8');
 
 function getUptime(){
   var uptime = os.uptime();
-  var uptimeRounded = Math.round(uptime);
-  var uptimeMinutes = Math.floor(uptimeRounded/60);
-  var uptimeSeconds = uptimeRounded-(uptimeMinutes*60);
-  console.log('Uptime: ' +  uptimeMinutes + " min " + uptimeSeconds + " sec");
+  var uptimeHours = Math.floor(uptime / 3600);
+  var uptimeMinutes = Math.floor(uptime % 3600 / 60);
+  var uptimeSeconds = Math.floor(uptime % 3600 % 60);
+  console.log('Uptime: ' + uptimeHours + " hours " + uptimeMinutes + " min " + uptimeSeconds + " sec");
 }
 
 exports.getUptime = getUptime;
